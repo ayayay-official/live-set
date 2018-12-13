@@ -7,8 +7,6 @@ import Sound.Tidal.Chords
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 m1 <- midiStream devices "Boutique SH-01A" 1 synthController
-m2 <- midiStream devices "Boutique SH-01A" 1 synthController
-m3 <- midiStream devices "Boutique SH-01A" 1 synthController
 
 -- armas para el pueblo - original by bombita rodriguez
 
@@ -56,10 +54,11 @@ d1 $ sound "808bd:4*8"
 d2 $ sound "808oh:0*4"
 d2 $ sound "[808oh:0 ~ ~ ~]*5"
 d2 $ sound "808oh:0*8"
---
+-- tabla
 d3 $ sound "tabla:1*5"
---
+-- toys
 d4 $ sound "toys:3*0.5"
+-- sitar
 d5 $ sound "[~ sitar:1 ~]*2"
 -- mute
 d1 silence
@@ -69,11 +68,7 @@ d4 silence
 d5 silence
 hush
 
-
-
-
-
-
+-- midi
 m1 $ n "[e4, g4, b5]" # dur "1.0 1.0 1.0"
 m1 $ n "[[32 34], [36 38]]"
 m1 $ every 3 (density 2) $ every 4 (palindrome) $ n "{c a4 f3}%8"
@@ -81,7 +76,56 @@ m1 $ n "c a" # dur (scale 0.1 0.4 sine1)
 m1 silence
 
 
+-- Piensa en mí - original by Grupo Mojado
 
+-- A                          F#m
+-- En vez de ponerte a pensar en él,
+--  A                          F#m
+-- En vez de que vivas llorando por él...
+--
+--
+--           D             E
+-- Piensa en mi, llora por mi,
+--           A                F#m
+-- Llamame a mi, no lo llames a él
+--           D             E
+-- Piensa en mi, llora por mi,
+--           A                F#m
+-- Llamame a mi, no lo llames a él
+--
+--  A
+-- Recuerda que hace mucho tiempo,
+--  F#m
+-- Te amo, te amo, te amo oh oh,
+--  A                     F#m
+-- Quiero hacerte muy muy feliz,
+--         D               E
+-- vamos a tomar el primer avión
+--     A                F#m
+-- con destino a la felicidad
+--   D            E    A    F#m
+-- la felicidad...
+--
+--           D             E
+-- Piensa en mi, llora por mi,
+--           A                F#m
+-- Llamame a mi, no lo llames a él
+--           D             E
+-- Piensa en mi, llora por mi,
+--           A                F#m
+-- Llamame a mi, no lo llames a él
+--
+--
+--           D             E
+-- Piensa en mi, llora por mi,
+--           A                F#m
+-- Llamame a mi, no lo llames a él
+--           D             E
+-- Piensa en mi, llora por mi,
+--           A                F#m
+-- Llamame a mi, no lo llames a él
+--
+--   D    E    A    F#m..
 
 
 
@@ -89,7 +133,7 @@ m1 silence
 d1 $ slow 16 $ striate 128 $ sound "bd*12 sn*8 [hh sn bd]*4 sn*4 bd*4"
 d1 silence
 
--- armas para el pueblo
+
 
 d1 $ sound "bd:4"
 d1 $ sound "bd sd:3"
@@ -143,18 +187,9 @@ d2 silence
 
 
 
-
-
 import Sound.Tidal.MIDI.Context
 displayOutputDevices >>= putStrLn
 
-
-devices <- midiDevices
-m1 <- midiStream devices "USB MIDI Device" 1 synthController
-
-
-
--- evaluate each line with shift+enter
 
 
 
@@ -183,23 +218,3 @@ d1 $ sound "bd bd . sd sd sd . bd sd"
 -- sd cp sd cp
 -- play at the same time
 d1 $ sound "[bd bd bd, sd cp sd cp]"
-
-d1 silence
-
-d2 silence
-
-d3 silence
-
-d4 silence
-
-d5 silence
-
-d6 silence
-
-d7 silence
-
-d8 silence
-
-d9 silence
-
-hush
