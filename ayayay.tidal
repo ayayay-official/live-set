@@ -31,6 +31,62 @@ m1 <- midiStream devices "Boutique SH-01A" 1 synthController
 -- E                     Am                    E                    Am
 -- Armas para el pueblo, armas para el pueblo, armas para el pueblo ya
 
+-- soy una estrella y debo aceptar que es lindo que me este quemando
+
+
+-- maldito amor - supernova
+
+-- 108 bpm, 4 beats per cycle
+cps (106/60/4)
+
+
+-- REm       SOL      DO           LAm         REm
+-- Me miras, te miro, te ves tan lindo de perfil.
+--          SOL      DO        LAm        REm
+--   Tu pelo, tu boca, eres perfecto para mí.
+--      SOL         DO                LAm
+--   Si tú supieras cómo te podría querer.
+-- REm  SOL        MI
+--   Ya no puedo seguir fingiendo como si nada pasara.
+--
+--
+--   Amiga, te quiero, y nunca te voy a engañar.
+--   Amiga, lo mío es una triste enfermedad.
+--   Ya sé que él es tuyo y qué le voy a hacer.
+--   Ya sé que debo conformarme con ser amiga de ambos.
+--
+--            FA                 SOL
+--   Maldito amor - no digas que no sientes nada
+--            LAm                   DO
+--   Maldita amiga - no vuelvas a hablarme de él
+--            FA                 SOL
+--   Maldito amor - no digas que no sientes nada
+--            LAm                       DO          REm
+--   Maldita amiga - estoy muriendo por un maldito amor,
+--          SOL
+--   Amor, amor, amor...
+-- MIm                  LAm                    FA
+--   No puedo seguir mintiendo si no estoy con él
+--            SOL     REm   SOL
+--   Maldita amiga...
+--
+--          LAm                DO              REm   SOL
+--   Un día voy a besarte y no voy a dejarte jamás
+--          LAm               DO                    REm   SOL
+--   Un día voy a pensar en nosotros, lo siento por ella
+--             MI
+--   Un día tendremos que vernos las caras por última vez.
+--
+--
+--   Maldito amor - no digas que no sientes nada
+--   Maldita amiga - no vuelvas a hablarme de él
+--   Maldito amor - no digas que no sientes nada
+--   Maldita amiga - estoy muriendo por un maldito amor,
+--   Amor, amor, amor...
+--   No puedo seguir mintiendo si no estoy con él
+--   Maldita amiga...
+
+
 
 -- 140 bpm, 4 beats per cycle
 cps (140/60/4)
@@ -173,36 +229,6 @@ d1 $ sound "bd? sd? sd? sd?"
 
 
 
-
-
-
-d1 $ midinote "60 62*2" # s "supersaw"
-d1 silence
-
-d2 $ every 4 (rev) $ n "<[g5 df5 e5 a5] [gf5 d5 c5 g5]*3>" # s "supersaw"
-d2 silence
-
-
-
-
-
-
-import Sound.Tidal.MIDI.Context
-displayOutputDevices >>= putStrLn
-
-
-
-
-d1 $ sound "bd" # n "3"
-
-d2 $ sound "birds"
-d1 $ sound "bd sd:3"
-
-d1 $ sound "bd sd:1"
-
-d2 $ sound "hh hh hh hh"
-
-d3 $ sound "arpy"
 
 -- brackets are for doing subdivisions in a step
 d1 $ sound "bd [sd sd sd sd]"
