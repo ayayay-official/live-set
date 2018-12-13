@@ -1,0 +1,205 @@
+-- ayayay live set
+-- thursday december 13th 2018
+
+-- tidalcycles setup
+import Sound.Tidal.MIDI.Context
+import Sound.Tidal.Chords
+displayOutputDevices >>= putStrLn
+devices <- midiDevices
+m1 <- midiStream devices "Boutique SH-01A" 1 synthController
+m2 <- midiStream devices "Boutique SH-01A" 1 synthController
+m3 <- midiStream devices "Boutique SH-01A" 1 synthController
+
+-- armas para el pueblo - original by bombita rodriguez
+
+-- E             Am
+-- Tu papá no me quiere
+-- E             Am
+-- Es un cerdo capitalista
+--
+--  Dm               Am
+-- Pero yo quiero casarme con vos
+--  E                Am
+-- y luchar por la patria socialista
+--  Dm               Am
+--  Pero yo quiero casarme con vos
+--  E                Am
+-- y andar juntos por la senda guevarista
+--
+--
+--
+-- E                     Am                    E                    Am
+-- Armas para el pueblo, armas para el pueblo, armas para el pueblo ya
+-- E                     Am                    E                    Am
+-- Armas para el pueblo, armas para el pueblo, armas para el pueblo ya
+
+
+-- 140 bpm, 4 beats per cycle
+cps (140/60/4)
+
+-- E chord
+m1 $ n "[e4, gs4, b4]" # legato "1"
+-- Am chord
+m1 $ n "[a4, c5, e5]" # legato "1"
+-- Dm chord
+m1 $ n "[d4, f4, a4]" # legato "1"
+-- mute
+m1 silence
+
+-- bass drum
+d1 $ sound "[808bd:2]*2"
+d1 $ sound "[~ 808bd:2]*2"
+d1 $ sound "[808bd:4]*2"
+d1 $ sound "[~ 808bd:4]*4"
+d1 $ sound "808bd:4*8"
+-- hi hat
+d2 $ sound "808oh:0*4"
+d2 $ sound "[808oh:0 ~ ~ ~]*5"
+d2 $ sound "808oh:0*8"
+--
+d3 $ sound "tabla:1*5"
+--
+d4 $ sound "toys:3*0.5"
+d5 $ sound "[~ sitar:1 ~]*2"
+-- mute
+d1 silence
+d2 silence
+d3 silence
+d4 silence
+d5 silence
+hush
+
+
+
+
+
+
+m1 $ n "[e4, g4, b5]" # dur "1.0 1.0 1.0"
+m1 $ n "[[32 34], [36 38]]"
+m1 $ every 3 (density 2) $ every 4 (palindrome) $ n "{c a4 f3}%8"
+m1 $ n "c a" # dur (scale 0.1 0.4 sine1)
+m1 silence
+
+
+
+
+
+
+
+d1 $ slow 16 $ striate 128 $ sound "bd*12 sn*8 [hh sn bd]*4 sn*4 bd*4"
+d1 silence
+
+-- armas para el pueblo
+
+d1 $ sound "bd:4"
+d1 $ sound "bd sd:3"
+d2 $ sound "hh hh hh hh"
+d1 silence
+d2 silence
+solo $ d1 $ sound "bd"
+d1 $ sound "[bd sd sd] cp"
+d1 $ sound "[bd bd bd bd] [sd]"
+d1 $ sound "[bd bd bd] [sd sd]"
+d1 $ sound "[bd bd] [sd sd sd sd]"
+d1 $ sound "[bd bd bd, sd cp sd cp, hh hh hh hh hh hh hh]"
+d1 $ sound "bd*2"
+d1 $ sound "[bd sn]*2 cp"
+d1 $ sound "[bd sn] cp/2"
+d1 $ every 4 (rev) (sound "bd*2 [bd [sn sn*2 sn] sn]")
+d1 $ slow 4 $ sound "bd*2 [bd [sn sn*2 sn] sn]"
+d1 $ sound "bd(5,8)"
+d1 $ sound "bd(3,8) sn*2"
+d1 $ sound "bd(3,4)"
+d1 $ sound "bd(4,9)"
+d1 $ sound "bd(5,16)"
+
+
+
+-- 140 bpm, 4 beats per cycle
+cps (140/60/4)
+
+d1 $ sound "arpy*8" # up (run 8)
+d1 $ sound "arpy*8" # speed (run 8)
+
+-- randomness
+d1 $ sound "arpy*4" # pan (rand)
+d1 $ s "arpy*8" # n (irand 30)
+
+d1 $ sound "bd? sd? sd? sd?"
+
+
+
+
+
+
+d1 $ midinote "60 62*2" # s "supersaw"
+d1 silence
+
+d2 $ every 4 (rev) $ n "<[g5 df5 e5 a5] [gf5 d5 c5 g5]*3>" # s "supersaw"
+d2 silence
+
+
+
+
+
+
+
+
+import Sound.Tidal.MIDI.Context
+displayOutputDevices >>= putStrLn
+
+
+devices <- midiDevices
+m1 <- midiStream devices "USB MIDI Device" 1 synthController
+
+
+
+-- evaluate each line with shift+enter
+
+
+
+d1 $ sound "bd" # n "3"
+
+d2 $ sound "birds"
+d1 $ sound "bd sd:3"
+
+d1 $ sound "bd sd:1"
+
+d2 $ sound "hh hh hh hh"
+
+d3 $ sound "arpy"
+
+-- brackets are for doing subdivisions in a step
+d1 $ sound "bd [sd sd sd sd]"
+
+d1 $ sound "[bd bd] [bd [sd [sd sd] sd] sd]"
+
+-- you can also do it with periods
+d1 $ sound "bd bd . sd sd sd . bd sd"
+
+-- commas are for layering
+-- bd bd bd
+-- and
+-- sd cp sd cp
+-- play at the same time
+d1 $ sound "[bd bd bd, sd cp sd cp]"
+
+d1 silence
+
+d2 silence
+
+d3 silence
+
+d4 silence
+
+d5 silence
+
+d6 silence
+
+d7 silence
+
+d8 silence
+
+d9 silence
+
+hush
